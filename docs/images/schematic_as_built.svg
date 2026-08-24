@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 920" width="1140" height="920" font-family="Helvetica, Arial, sans-serif">
+<rect width="1140" height="920" fill="#ffffff"/>
+<defs>
+  <g id="gnd">
+    <line x1="0" y1="0" x2="0" y2="10" stroke="#111" stroke-width="2"/>
+    <line x1="-12" y1="10" x2="12" y2="10" stroke="#111" stroke-width="2.4"/>
+    <line x1="-7.5" y1="15" x2="7.5" y2="15" stroke="#111" stroke-width="2.4"/>
+    <line x1="-3" y1="20" x2="3" y2="20" stroke="#111" stroke-width="2.4"/>
+  </g>
+  <g id="nmos">
+    <line x1="-58" y1="0" x2="-24" y2="0" stroke="#111" stroke-width="2"/>
+    <line x1="-24" y1="-26" x2="-24" y2="26" stroke="#111" stroke-width="2"/>
+    <line x1="-14" y1="-24" x2="-14" y2="-9" stroke="#111" stroke-width="3"/>
+    <line x1="-14" y1="-7" x2="-14" y2="7" stroke="#111" stroke-width="3"/>
+    <line x1="-14" y1="9" x2="-14" y2="24" stroke="#111" stroke-width="3"/>
+    <line x1="-14" y1="-17" x2="20" y2="-17" stroke="#111" stroke-width="2"/>
+    <line x1="20" y1="-17" x2="20" y2="-48" stroke="#111" stroke-width="2"/>
+    <line x1="-14" y1="17" x2="20" y2="17" stroke="#111" stroke-width="2"/>
+    <line x1="20" y1="17" x2="20" y2="48" stroke="#111" stroke-width="2"/>
+    <line x1="-14" y1="0" x2="20" y2="0" stroke="#111" stroke-width="2"/>
+    <path d="M -2,-7 L 12,0 L -2,7 Z" fill="#111"/>
+  </g>
+  <g id="cap">
+    <line x1="-15" y1="0" x2="15" y2="0" stroke="#111" stroke-width="3"/>
+    <line x1="-15" y1="9" x2="15" y2="9" stroke="#111" stroke-width="3"/>
+  </g>
+</defs>
+
+<text x="40" y="50" font-size="25" font-weight="bold" fill="#111">WLED ESP32 LED Controller — as built</text>
+<text x="40" y="74" font-size="13.5" fill="#666">Single 5 V rail. Addressable WS2812B run, plus an analog RGB strip switched low-side through logic-level N-MOSFETs.</text>
+<line x1="40" y1="90" x2="1100" y2="90" stroke="#111" stroke-width="1.5"/>
+
+<!-- RAILS -->
+<line x1="250" y1="150" x2="1100" y2="150" stroke="#d35400" stroke-width="3.5"/>
+<text x="1100" y="140" font-size="14" font-weight="bold" fill="#d35400" text-anchor="end">+5 V</text>
+<line x1="70" y1="800" x2="1100" y2="800" stroke="#111" stroke-width="3.5"/>
+<text x="76" y="822" font-size="14" font-weight="bold" fill="#111">GND</text>
+
+<!-- PSU -->
+<rect x="40" y="118" width="176" height="76" rx="4" fill="#fef7f2" stroke="#d35400" stroke-width="2.5"/>
+<text x="128" y="146" font-size="15" font-weight="bold" fill="#d35400" text-anchor="middle">PSU</text>
+<text x="128" y="167" font-size="13" fill="#d35400" text-anchor="middle">5 V · 20 A</text>
+<text x="128" y="185" font-size="11" fill="#a04000" text-anchor="middle">via DC jack</text>
+<line x1="216" y1="150" x2="250" y2="150" stroke="#d35400" stroke-width="3"/>
+<line x1="128" y1="194" x2="128" y2="800" stroke="#111" stroke-width="2"/>
+
+<!-- bulk cap -->
+<line x1="300" y1="150" x2="300" y2="198" stroke="#111" stroke-width="2"/>
+<circle cx="300" cy="150" r="5" fill="#d35400"/>
+<use href="#cap" x="300" y="198"/>
+<line x1="300" y1="207" x2="300" y2="226" stroke="#111" stroke-width="2"/>
+<use href="#gnd" x="300" y="226"/>
+<text x="322" y="202" font-size="11.5" fill="#666">C1 bulk</text>
+
+<!-- decoupling at ESP32 -->
+<line x1="196" y1="150" x2="196" y2="286" stroke="#d35400" stroke-width="2"/>
+<circle cx="196" cy="150" r="5" fill="#d35400"/>
+<line x1="196" y1="286" x2="240" y2="286" stroke="#d35400" stroke-width="2"/>
+<use href="#cap" x="240" y="286"/>
+<line x1="240" y1="295" x2="240" y2="314" stroke="#111" stroke-width="2"/>
+<use href="#gnd" x="240" y="314"/>
+<text x="262" y="290" font-size="11.5" fill="#666">C2 100 nF</text>
+<line x1="196" y1="286" x2="196" y2="392" stroke="#d35400" stroke-width="2"/>
+
+<!-- ESP32 -->
+<rect x="120" y="392" width="216" height="206" rx="5" fill="#eef6f9" stroke="#111" stroke-width="2.5"/>
+<text x="228" y="468" font-size="21" font-weight="bold" fill="#111" text-anchor="middle">ESP32</text>
+<text x="228" y="492" font-size="12.5" fill="#555" text-anchor="middle">WROOM</text>
+<text x="228" y="512" font-size="12.5" fill="#555" text-anchor="middle">stock WLED firmware</text>
+<circle cx="196" cy="392" r="5" fill="#d35400"/>
+<text x="206" y="384" font-size="11" fill="#a04000">5 V</text>
+
+<line x1="120" y1="560" x2="94" y2="560" stroke="#111" stroke-width="2"/>
+<line x1="94" y1="560" x2="94" y2="800" stroke="#111" stroke-width="2"/>
+<text x="86" y="554" font-size="11.5" fill="#666" text-anchor="end">GND</text>
+<text x="344" y="420" font-size="11.5" font-weight="bold" fill="#666">GPIO</text>
+
+<!-- ===== CHANNEL R ===== -->
+<line x1="336" y1="432" x2="400" y2="432" stroke="#111" stroke-width="2"/>
+<line x1="400" y1="432" x2="400" y2="288" stroke="#111" stroke-width="2"/>
+<line x1="400" y1="288" x2="542" y2="288" stroke="#111" stroke-width="2"/>
+<use href="#nmos" x="600" y="288"/>
+<circle cx="470" cy="288" r="5" fill="#111"/>
+<line x1="470" y1="288" x2="470" y2="322" stroke="#111" stroke-width="2"/>
+<rect x="458" y="322" width="24" height="46" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="450" y="350" font-size="11.5" fill="#666" text-anchor="end">1 kΩ</text>
+<line x1="470" y1="368" x2="470" y2="386" stroke="#111" stroke-width="2"/>
+<use href="#gnd" x="470" y="386"/>
+<line x1="620" y1="336" x2="620" y2="800" stroke="#111" stroke-width="2"/>
+<line x1="620" y1="240" x2="900" y2="240" stroke="#111" stroke-width="2"/>
+<text x="644" y="322" font-size="12.5" font-weight="bold" fill="#111">Q1</text>
+
+<!-- ===== CHANNEL G ===== -->
+<line x1="336" y1="472" x2="422" y2="472" stroke="#111" stroke-width="2"/>
+<line x1="422" y1="472" x2="422" y2="438" stroke="#111" stroke-width="2"/>
+<line x1="422" y1="438" x2="542" y2="438" stroke="#111" stroke-width="2"/>
+<use href="#nmos" x="600" y="438"/>
+<circle cx="470" cy="438" r="5" fill="#111"/>
+<line x1="470" y1="438" x2="470" y2="472" stroke="#111" stroke-width="2"/>
+<rect x="458" y="472" width="24" height="46" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="450" y="500" font-size="11.5" fill="#666" text-anchor="end">1 kΩ</text>
+<line x1="470" y1="518" x2="470" y2="536" stroke="#111" stroke-width="2"/>
+<use href="#gnd" x="470" y="536"/>
+<line x1="648" y1="486" x2="648" y2="800" stroke="#111" stroke-width="2"/>
+<line x1="620" y1="390" x2="900" y2="390" stroke="#111" stroke-width="2"/>
+<text x="644" y="472" font-size="12.5" font-weight="bold" fill="#111">Q2</text>
+
+<!-- ===== CHANNEL B ===== -->
+<line x1="336" y1="512" x2="444" y2="512" stroke="#111" stroke-width="2"/>
+<line x1="444" y1="512" x2="444" y2="588" stroke="#111" stroke-width="2"/>
+<line x1="444" y1="588" x2="542" y2="588" stroke="#111" stroke-width="2"/>
+<use href="#nmos" x="600" y="588"/>
+<circle cx="470" cy="588" r="5" fill="#111"/>
+<line x1="470" y1="588" x2="470" y2="622" stroke="#111" stroke-width="2"/>
+<rect x="458" y="622" width="24" height="46" fill="#fff" stroke="#111" stroke-width="2"/>
+<text x="450" y="650" font-size="11.5" fill="#666" text-anchor="end">1 kΩ</text>
+<line x1="470" y1="668" x2="470" y2="686" stroke="#111" stroke-width="2"/>
+<use href="#gnd" x="470" y="686"/>
+<line x1="676" y1="636" x2="676" y2="800" stroke="#111" stroke-width="2"/>
+<line x1="620" y1="540" x2="900" y2="540" stroke="#111" stroke-width="2"/>
+<text x="644" y="622" font-size="12.5" font-weight="bold" fill="#111">Q3</text>
+<text x="576" y="722" font-size="12" font-weight="bold" fill="#555" text-anchor="middle">3 × IRLZ44N</text>
+<text x="576" y="738" font-size="10.5" fill="#999" text-anchor="middle">one per colour channel</text>
+
+<!-- ANALOG RGB TERMINAL -->
+<rect x="900" y="204" width="180" height="372" rx="4" fill="none" stroke="#111" stroke-width="2.5"/>
+<text x="990" y="194" font-size="13" font-weight="bold" fill="#111" text-anchor="middle">ANALOG RGB STRIP</text>
+<text x="1068" y="234" font-size="12" font-weight="bold" fill="#333" text-anchor="end">R</text>
+<text x="1068" y="384" font-size="12" font-weight="bold" fill="#333" text-anchor="end">G</text>
+<text x="1068" y="534" font-size="12" font-weight="bold" fill="#333" text-anchor="end">B</text>
+<line x1="990" y1="204" x2="990" y2="150" stroke="#d35400" stroke-width="2.5"/>
+<text x="1000" y="184" font-size="11.5" fill="#a04000">+5 V — strip common anode</text>
+<circle cx="990" cy="150" r="5" fill="#d35400"/>
+
+<!-- WS2812B TERMINAL -->
+<rect x="900" y="626" width="180" height="130" rx="4" fill="none" stroke="#111" stroke-width="2.5"/>
+<text x="990" y="616" font-size="13" font-weight="bold" fill="#111" text-anchor="middle">WS2812B  ~400 LEDs</text>
+<text x="1068" y="662" font-size="12" fill="#333" text-anchor="end">+5 V</text>
+<text x="1068" y="702" font-size="12" fill="#333" text-anchor="end">DATA</text>
+<text x="1068" y="742" font-size="12" fill="#333" text-anchor="end">GND</text>
+
+<line x1="900" y1="652" x2="840" y2="652" stroke="#d35400" stroke-width="2.5"/>
+<line x1="840" y1="652" x2="840" y2="150" stroke="#d35400" stroke-width="2.5"/>
+<circle cx="840" cy="150" r="5" fill="#d35400"/>
+
+<line x1="336" y1="552" x2="366" y2="552" stroke="#111" stroke-width="2"/>
+<line x1="366" y1="552" x2="366" y2="694" stroke="#111" stroke-width="2"/>
+<line x1="366" y1="694" x2="900" y2="694" stroke="#111" stroke-width="2"/>
+<text x="780" y="686" font-size="11" fill="#999" text-anchor="middle">DATA</text>
+
+<line x1="900" y1="734" x2="872" y2="734" stroke="#111" stroke-width="2"/>
+<line x1="872" y1="734" x2="872" y2="800" stroke="#111" stroke-width="2"/>
+
+<!-- NOTES -->
+<line x1="40" y1="846" x2="360" y2="846" stroke="#ddd" stroke-width="1"/>
+<text x="40" y="866" font-size="12" font-weight="bold" fill="#111">NOTES</text>
+<text x="40" y="886" font-size="11" fill="#555">1  1 kΩ gate pulldowns hold each MOSFET off while the ESP32 GPIOs float during boot.</text>
+<text x="40" y="902" font-size="11" fill="#555">2  IRLZ44N is logic-level — it fully enhances at a 3.3 V gate, where a standard IRF-series part would not.</text>
+<text x="596" y="886" font-size="11" fill="#555">3  One 5 V rail feeds the ESP32, the addressable run and the analog strip.</text>
+<text x="596" y="902" font-size="11" fill="#555">    An earlier revision ran the analog strip at 12 V with a buck for the logic.</text>
+</svg>
